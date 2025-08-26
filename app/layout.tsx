@@ -47,10 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
 
-        {/* Footer */}
-        <footer className="py-8 text-center text-sm text-slate-600">
-          © {year} Lisa Nguyen
-        </footer>
+
       </body>
     </html>
   );
