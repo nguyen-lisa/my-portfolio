@@ -1,3 +1,6 @@
+This portfolio is a work in progress utilizing Next.js to replace my temporary portfolio website - https://nguyen-lisa.github.io/
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
