@@ -1,22 +1,46 @@
+import ProjectCard from "@/components/ProjectCard";
+import { allProjects } from "contentlayer/generated";
+
 export default function Home() {
+  // optional: newest first
+  const projects = [...allProjects].sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+
   return (
     <section
       id="projects"
-      className="container mx-auto px-4 text-center my-12
-                 transition duration-700 ease-out will-change-transform
-                 motion-reduce:transition-none"
+      className="container mx-auto my-12 px-4 text-center transition duration-700 ease-out motion-reduce:transition-none"
     >
-      <h2 className="text-3xl md:text-4xl font-semibold mb-3 text-white text-slate-900">
+      <h2 className="mb-3 text-3xl font-semibold text-white-900 md:text-4xl">
         My Work
       </h2>
-      <p className="text-slate-700 text-white max-w-2xl mx-auto">
-        Projects coming soon. Check back here for live case studies.
+      <p className="mx-auto max-w-2xl text-white-700">
+        Selected projects showcasing my work in UI/UX and frontend development.
       </p>
-      <div
-        className="mt-6 inline-block rounded-full bg-slate-800 text-white px-3 py-1 text-sm font-medium"
-        aria-label="Status: Coming soon"
-      >
-        Coming Soon
+
+      {/* Project grid */}
+      <div className="mt-8 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+        {projects.length === 0 ? (
+          <div
+            className="mx-auto inline-block rounded-full bg-slate-800 px-3 py-1 text-sm font-medium text-white"
+            aria-label="Status: Coming soon"
+          >
+            Coming Soon
+          </div>
+        ) : (
+          projects.map((p) => (
+            <ProjectCard
+              key={p._id}
+              title={p.title}
+              summary={p.summary}
+              tags={p.tags}
+              //year={p.year}
+              imageSrc={p.image}
+              imageAlt={p.title}
+              caseStudyUrl={p.url}
+              demoUrl={p.demoUrl}
+            />
+          ))
+        )}
       </div>
     </section>
   );
