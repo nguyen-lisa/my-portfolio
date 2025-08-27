@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
-import { allProjects } from "contentlayer/generated";
+import { PROJECTS } from "@/data/projects";
 
 export default function Home() {
   // optional: newest first
